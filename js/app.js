@@ -1,4 +1,4 @@
-
+/* 
 //REGISTRO
 
 const usuarios = [
@@ -49,28 +49,67 @@ while (nombreUsuario !=true) {
         alert("Nombre de usuario incorrecto")
     }
 }
+ */
+
+//TICKETS (Sera a traves de selector en el html y no a traves de texto)
 
 
-//TICKETS (Sera a travesa de selector en el html y no a traves de texto)
+
+class newTicket {
+    constructor(day, image, service, price) {
+        this.day = day
+        this.imgSrc = image
+        this.service = service
+        this.price = price
+
+    }
+}
+const day1 = new newTicket("Day 1", "../DAY1.png", "Standard", 180)
+const day2 = new newTicket("Day 2", "../DAY2.png", "Standard", 250)
+const day3 = new newTicket("Day 3", "../DAY3.png", "Standard", 230)
+
+const days = [day1, day2, day3]
 
 const tickets = []
 
-class newTicket{
-    constructor(day, service, price) {
-        this.day = day
-        this.service = service
-        this.price = price
-    }
-}
-const day1 = new newTicket ("Day 1", "Standard", 180)
-const day2 = new newTicket ("Day 2", "Standard", 250)
-const day3 = new newTicket ("Day 3", "Standard", 230)
+const ticketsCard = document.querySelector("#ticketsCard")
 
+days.forEach((cardTicket) => {
+    const card = document.createElement("div")
+    card.className = "card"
+    card.innerHTML = `
+    <input type="image" src="${cardTicket.imgSrc}" data-id="${cardTicket.day}" class="buttonCTA cardImg">
+    <h3 class="cardTitle">${cardTicket.day} </h3>
+    <p class="cardDesc">${cardTicket.service} service</p>
+    <span class="cardPrice">$ ${cardTicket.price}</span>
+    `
+
+    ticketsCard.append(card)
+})
+
+const agregarTicket = (e) => {
+    const ticketElegido = e.target.getAttribute("data-id")
+    const cardTicket = days.find((cardTicket) => cardTicket.day == ticketElegido)
+    tickets.push(cardTicket)
+    console.log(tickets)
+}
+
+const botonCompra = document.querySelectorAll(".buttonCTA")
+botonCompra.forEach((botonC) => {
+    botonC.addEventListener("click", agregarTicket)
+})
+
+
+
+
+
+
+/* 
 tickets.push(day1)
 tickets.push(day2)
-tickets.push(day3)
+tickets.push(day3) */
 
-console.log(tickets)
+/* console.log(tickets)
 
 //COMBO TICKETS SELECTION (Esto se hara con selector y no con texto)
 
@@ -96,3 +135,4 @@ console.log("Total a pagar por 2 entradas: " + (totalTickets2)*85/100)
 
 const totalTicket3day = tickets.reduce((acumulador, abono) => acumulador + abono.price, 0)
 console.log("Total a pagar por el abono completo: " +(totalTicket3day) * 75 / 100) 
+ */

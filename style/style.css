@@ -5,6 +5,22 @@
 html{
     font-size: 62,5%;
 }
+@font-face {
+    font-family: KeeponTrucking;
+    src: url( ../KeeponTruckin.ttf ) ;
+}
+@font-face {
+    font-family: Mustica;
+    src: url(../MusticaPro-SemiBold.otf);
+}
+@font-face{
+    font-family: TSBlock;
+    src: url(../TS\ Block\ Bold.ttf);
+}
+#body{
+    background-image: url(../Fondo.png);
+    background-size:cover ;
+}
 .grid{
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 1fr;
@@ -16,20 +32,18 @@ html{
     "1 skills skills 4"
     "1 work work 4"
     "1 contact contact 4";
-    background-color: #0d0521;
-
 }
 #header{
     grid-area: header
 }
 .list{
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Mustica', sans-serif;
     font-size: 1.5rem;
-    color:#0eef7b;
+    color:#7d0000;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
-    background-color: #0d0521
+    background-color: #fff134;
 
 }
 ul {
@@ -39,8 +53,7 @@ li {
     float: left;
 }
 li a {
-
-    color: #0eef7b;
+    color: #7d0000;
     padding: 14px 16px;
     text-decoration: none;
 }
@@ -65,17 +78,17 @@ li a {
 
     font-size: 2rem;
     color: #0eef7b9e;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'KeeponTrucking', sans-serif;
     font-weight: 100;
 }
 #about{
     grid-area: about;
 }
 #aboutTitle{
-    text-align: center;
+    text-align: right;
     font-size: 3rem;
-    color: #0eef7b;
-    font-family: 'Catamaran', sans-serif ;
+    color: #7d0000;
+    font-family: 'TSBlock', sans-serif ;
     font-weight: 600;
     letter-spacing: 2vw;
     margin-bottom: 6vh;
@@ -84,33 +97,33 @@ li a {
     text-align: center;
     font-size: 1.5rem;
     color: #0eef7b9e;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'KeeponTrucking', sans-serif;
     font-weight: 200;
     margin-bottom: 5vh;
 }
-#skills{
+#grill{
     grid-area: skills;
 }
-#skillsTitle{
+#grillTitle{
     text-align: left;
     font-size: 3rem;
-    color: #0eef7b;
-    font-family: 'Catamaran', sans-serif ;
+    color: #7d0000;
+    font-family: 'TSBlock', sans-serif ;
     font-weight: 600;
     letter-spacing: 2vw;
     margin-bottom: 6vh;
     margin-left: 3vw;
 
 }
-.parrafoSkills{
+.parrafogrill{
     text-align: left;
     font-size: 1.5rem;
     color: #0eef7b9e;
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'KeeponTrucking', sans-serif;
     font-weight: 200;
     margin-bottom: 5vh;
 }
-.skillsList{
+.grillList{
     display: flex;
     flex-direction: column;
     font-size: 1.5rem;
@@ -119,16 +132,74 @@ li a {
     padding: 14px 16px;
     text-decoration: none;
 }
-#work{
+
+
+/* TICKETS */
+
+#ticketSection{
     grid-area: work;
 }
-#workTitle{
-    text-align: right;
+#ticketTitle{
+    text-align: center;
     font-size: 3rem;
-    color:#0eef7b;
-    font-family:'Catamaran', sans-serif ;
+    color:#7d0000;
+    font-family:'TSBlock', sans-serif ;
     font-weight: 600;
     letter-spacing: 2vw;
+    margin-left: 3vw;
     margin-top: 6vh;
-    margin-right: 3vw;
+}
+
+.ticketsCard {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.card {
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardImg {
+    width: 80%;
+}
+
+.cardTitle {
+    color: #7d0000;
+    font-family: Mustica;
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.cardPrice {
+    color: #7d0000;
+    font-family: Mustica;
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.cardDesc {
+    color: #7d0000;
+    font-family: Mustica;
+    display: block;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.buttonCTA {
+    margin: 10px 10px;
+    font-weight: 500;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.buttonCTA:hover {
+    box-shadow: 5px 5px 20px  rgb(255, 251, 0);
 }
