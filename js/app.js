@@ -64,9 +64,9 @@ class newTicket {
 
     }
 }
-const day1 = new newTicket("Day 1", "../DAY1.png", "Standard", 180)
-const day2 = new newTicket("Day 2", "../DAY2.png", "Standard", 250)
-const day3 = new newTicket("Day 3", "../DAY3.png", "Standard", 230)
+const day1 = new newTicket("Day 1", "DAY1.png", "Standard", 180)
+const day2 = new newTicket("Day 2", "DAY2.png", "Standard", 250)
+const day3 = new newTicket("Day 3", "DAY3.png", "Standard", 230)
 
 const days = [day1, day2, day3]
 
