@@ -24,14 +24,14 @@ html{
 .grid{
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 1fr;
-    grid-template-rows: 20vh 100vh 110vh 100vh 100vh 50vh;
+    grid-template-rows: 20vh 100vh 110vh 100vh 100vh auto;
     grid-template-areas: 
     "header header header header"
     "1 section section 4"
     "1 about about 4"
     "1 skills skills 4"
     "1 work work 4"
-    "1 contact contact 4";
+    "1 carrito carrito 4";
 }
 #header{
     grid-area: header
@@ -202,4 +202,65 @@ li a {
 
 .buttonCTA:hover {
     box-shadow: 5px 5px 20px  rgb(255, 251, 0);
+}
+
+/* CARRITO */
+
+#ticketSection2{
+    grid-area: carrito;
+}
+.carritoSection {
+    grid-area: carrito;
+    width: 100%;
+    flex-flow: column;
+    align-items: center;
+}
+
+.box {
+    width: auto;
+    padding: 20px 10px;
+    display: flex;
+    align-items: center;
+}
+
+.carrito {
+    color:#7d0000;
+    font-family:'TSBlock', sans-serif ;
+    font-weight: 600;
+    letter-spacing: 2vw;
+    margin-left: 3vw;
+    margin-top: 7vh;
+    color: #7d0000;
+    display: block;
+    font-size: 30px;
+    text-align: center;
+}
+
+.carritoImg {
+    width: 15%;
+}
+
+.carritoImg img {
+    width: 100%;
+}
+
+.carritoTitle {
+    width: 35%;
+    font-family: Mustica;
+    color: #7d0000;
+    text-align: center;
+}
+
+.carritoDesc {
+    width: 25%;
+    font-family: Mustica;
+    color: #7d0000;
+    text-align: center;
+}
+
+.carritoPrice {
+    width: 25%;
+    font-family: Mustica;
+    color: #7d0000;
+    text-align: center;
 }

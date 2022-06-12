@@ -51,10 +51,9 @@ while (nombreUsuario !=true) {
 }
  */
 
-//TICKETS (Sera a traves de selector en el html y no a traves de texto)
+//TICKETS 
 
-
-
+//Class modelo de tickets
 class newTicket {
     constructor(day, image, service, price) {
         this.day = day
@@ -64,16 +63,22 @@ class newTicket {
 
     }
 }
+
+//Genero tickets
 const day1 = new newTicket("Day 1", "DAY1.png", "Standard", 180)
 const day2 = new newTicket("Day 2", "DAY2.png", "Standard", 250)
 const day3 = new newTicket("Day 3", "DAY3.png", "Standard", 230)
 
+//Array de tickets
 const days = [day1, day2, day3]
 
+//Array Carrito de compras
 const tickets = []
 
+//Referencia de tickets en el HTML
 const ticketsCard = document.querySelector("#ticketsCard")
 
+//Generacion de cada producto
 days.forEach((cardTicket) => {
     const card = document.createElement("div")
     card.className = "card"
@@ -87,30 +92,64 @@ days.forEach((cardTicket) => {
     ticketsCard.append(card)
 })
 
+//Actualizacion de array 
+const carritoSection = document.querySelector("#carritoSection")
+
+const imprimirtickets = () => {
+    carritoSection.innerHTML = ``
+    tickets.forEach((cardTicket) => {
+        const Box = document.createElement("div")
+        Box.classname = "Box"
+        Box.innerHTML = `
+        <div class="box">
+    <div class="carritoImg">
+    <img src="${cardTicket.imgSrc}">
+    </div>
+    <div class="carritoTitle">${cardTicket.day} </div>
+    <div class="carritoDesc">${cardTicket.service} service</div>
+    <div class="carritoPrice">$ ${cardTicket.price}</div>
+    </div>
+    `
+        carritoSection.append(Box)
+    })
+}
+
+//Seleccion de tickets
 const agregarTicket = (e) => {
     const ticketElegido = e.target.getAttribute("data-id")
     const cardTicket = days.find((cardTicket) => cardTicket.day == ticketElegido)
     tickets.push(cardTicket)
-    console.log(tickets)
+    imprimirtickets()
+    localStorage.setItem("tickets", JSON.stringify(tickets))
 }
 
+//Agregar evento 
 const botonCompra = document.querySelectorAll(".buttonCTA")
 botonCompra.forEach((botonC) => {
     botonC.addEventListener("click", agregarTicket)
 })
 
+//Verifiacion de carrito al recargar la pagina
+if (localStorage.getItem("tickets")) {
+    tickets = JSON.parse(localStorage.getItem('tickets'))
+    imprimirtickets()
+}
 
+//Vaciar carrito
+const vaciarcarrito = () => {
+    if (localStorage.getItem("tickets")) {
+        localStorage.removeItem("tickets")
+    }
+    tickets = []
+    imprimirtickets()
+}
 
+const vaciarcarritoBtn = document.querySelector("#vaciarCarrito")
+vaciarcarritoBtn.addEventListener("click", vaciarcarrito)
 
 
 
 /* 
-tickets.push(day1)
-tickets.push(day2)
-tickets.push(day3) */
-
-/* console.log(tickets)
-
 //COMBO TICKETS SELECTION (Esto se hara con selector y no con texto)
 
 dayNumberA = prompt("Elija: Day 1, Day 2 or Day 3:")
