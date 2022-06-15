@@ -1,99 +1,103 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
-html{
-    font-size: 62,5%;
+
+html {
+    font-size: 62, 5%;
 }
+
 @font-face {
     font-family: KeeponTrucking;
-    src: url( ../KeeponTruckin.ttf ) ;
+    src: url(../KeeponTruckin.ttf );
 }
+
 @font-face {
     font-family: Mustica;
     src: url(../MusticaPro-SemiBold.otf);
 }
-@font-face{
+
+@font-face {
     font-family: TSBlock;
     src: url(../TS\ Block\ Bold.ttf);
 }
-#body{
+
+#body {
     background-image: url(../Fondo.png);
-    background-size:cover ;
+    background-size: cover;
 }
-.grid{
+
+.grid {
     display: grid;
     grid-template-columns: 1fr 3fr 3fr 1fr;
-    grid-template-rows: 20vh 100vh 110vh 100vh 100vh auto;
-    grid-template-areas: 
-    "header header header header"
-    "1 section section 4"
-    "1 about about 4"
-    "1 skills skills 4"
-    "1 work work 4"
-    "1 carrito carrito 4";
+    grid-template-rows: auto 100vh 110vh auto auto auto;
+    grid-template-areas:
+        "header header header header"
+        "section section section section"
+        "1 about about 4"
+        "1 lineUp lineUp 4"
+        "1 work work 4"
+        "1 carrito carrito 4";
 }
-#header{
+
+#header {
     grid-area: header
 }
-.list{
+
+.list {
     font-family: 'Mustica', sans-serif;
     font-size: 1.5rem;
-    color:#7d0000;
+    color: #7d0000;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     background-color: #fff134;
 
 }
+
 ul {
     list-style-type: none;
 }
+
 li {
     float: left;
 }
+
 li a {
     color: #7d0000;
     padding: 14px 16px;
     text-decoration: none;
 }
-#section{
+
+#section {
     grid-area: section;
-    
 }
-#box{
+
+#box {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.titulo{
-    text-align: left;
-    font-size: 4rem;
-    color: #0eef7b;
-    font-family:'Alfa Slab One', cursive;
-    font-weight: 500;
 
-}
-.subtitulo{
+/* ABOUT */
 
-    font-size: 2rem;
-    color: #0eef7b9e;
-    font-family: 'KeeponTrucking', sans-serif;
-    font-weight: 100;
-}
-#about{
+
+#about {
     grid-area: about;
 }
-#aboutTitle{
+
+#aboutTitle {
     text-align: right;
     font-size: 3rem;
     color: #7d0000;
-    font-family: 'TSBlock', sans-serif ;
+    font-family: 'TSBlock', sans-serif;
     font-weight: 600;
     letter-spacing: 2vw;
+    margin-top: 25vh;
     margin-bottom: 6vh;
 }
-.parrafoAbout{
+
+.parrafoAbout {
     text-align: center;
     font-size: 1.5rem;
     color: #0eef7b9e;
@@ -101,49 +105,113 @@ li a {
     font-weight: 200;
     margin-bottom: 5vh;
 }
-#grill{
-    grid-area: skills;
+
+
+
+/* LINE UP */
+
+#lineGrill {
+    grid-area: lineUp;
+    ;
 }
-#grillTitle{
+
+#grillTitle {
     text-align: left;
     font-size: 3rem;
     color: #7d0000;
-    font-family: 'TSBlock', sans-serif ;
+    font-family: 'TSBlock', sans-serif;
     font-weight: 600;
     letter-spacing: 2vw;
-    margin-bottom: 6vh;
-    margin-left: 3vw;
+    margin-bottom: 4rem;
+}
 
-}
-.parrafogrill{
-    text-align: left;
-    font-size: 1.5rem;
-    color: #0eef7b9e;
-    font-family: 'KeeponTrucking', sans-serif;
-    font-weight: 200;
-    margin-bottom: 5vh;
-}
-.grillList{
+
+#grill {
     display: flex;
-    flex-direction: column;
-    font-size: 1.5rem;
-    font-family: 'Catamaran', sans-serif;
-    color: #0eef7b9e;
-    padding: 14px 16px;
-    text-decoration: none;
+    flex-direction: row;
+    flex-flow: wrap;
+    margin-bottom: 3rem;
+    justify-content: center;
 }
+
+.grillList {
+    flex-direction: row;
+    font-size: 2rem;
+    font-family: 'TSBlock', sans-serif;
+    color: #7d0000;
+    transition: transform;
+}
+
+.parrafoGrill:hover {
+    text-shadow: 5px 5px 5px rgb(255, 251, 0);
+    transform: scale(1.4);
+}
+
+#artistSearch {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputLine {
+    justify-content: space-around;
+    width: 50vw;
+    height: 3rem;
+    border: 2px solid #7d0030;
+    border-radius: 50px;
+    background-color: #7d000059;
+    color: #ffee01;
+    font-family: Mustica;
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+#search {
+    color: #fff134;
+    height: 3rem;
+    padding: 0.7em 1.7em;
+    font-size: 18px;
+    border-radius: 0.5em;
+    background: #7d000059;
+    border: 1px solid #7d0030;
+    transition: all .3s;
+    box-shadow: 6px 6px 12px #680028e8;
+    margin-left: 1rem;
+}
+
+#search:active {
+    color: #ffffff;
+    box-shadow: inset 4px 4px 12px #7b595959;
+    inset -4px -4px 12px #ffffff;
+}
+
+#input{
+    display: flex;
+    justify-content: center;
+    color: #7d0030;
+    font-family: Mustica;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+
+
 
 
 /* TICKETS */
 
-#ticketSection{
+#ticketSection {
     grid-area: work;
 }
-#ticketTitle{
+
+#ticketTitle {
     text-align: center;
     font-size: 3rem;
-    color:#7d0000;
-    font-family:'TSBlock', sans-serif ;
+    color: #7d0000;
+    font-family: 'TSBlock', sans-serif;
     font-weight: 600;
     letter-spacing: 2vw;
     margin-left: 3vw;
@@ -153,7 +221,6 @@ li a {
 .ticketsCard {
     display: flex;
     justify-content: space-around;
-    width: 100%;
 }
 
 .card {
@@ -175,6 +242,7 @@ li a {
     font-weight: 600;
     margin-bottom: 10px;
 }
+
 .cardPrice {
     color: #7d0000;
     font-family: Mustica;
@@ -201,14 +269,18 @@ li a {
 }
 
 .buttonCTA:hover {
-    box-shadow: 5px 5px 20px  rgb(255, 251, 0);
+    box-shadow: 5px 5px 20px rgb(255, 251, 0);
 }
+
+
+
 
 /* CARRITO */
 
-#ticketSection2{
+#ticketSection2 {
     grid-area: carrito;
 }
+
 .carritoSection {
     grid-area: carrito;
     width: 100%;
@@ -224,8 +296,8 @@ li a {
 }
 
 .carrito {
-    color:#7d0000;
-    font-family:'TSBlock', sans-serif ;
+    color: #7d0000;
+    font-family: 'TSBlock', sans-serif;
     font-weight: 600;
     letter-spacing: 2vw;
     margin-left: 3vw;
@@ -263,4 +335,54 @@ li a {
     font-family: Mustica;
     color: #7d0000;
     text-align: center;
+}
+
+
+
+/* button */
+
+
+button {
+    border: none;
+    border-radius: 20px;
+    background-color: transparent;
+    transition: all 1.5s ease;
+    font-family: 'Ropa Sans', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0.05rem;
+    padding: 0;
+}
+
+button span {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 17px;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    transition-property: color;
+}
+
+button span:hover {
+    transition: 2s ease-in-out;
+    background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    backdrop-filter: blur(0px);
+    color: #ffffff;
+}
+
+#vaciarCarrito {
+    animation: zoom-in-zoom-out 1s ease;
+}
+
+@keyframes zoom-in-zoom-out {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    50% {
+        transform: scale(1.5, 1.5);
+    }
+
+    100% {
+        transform: scale(1, 1);
+    }
 }

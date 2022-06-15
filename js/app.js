@@ -51,6 +51,112 @@ while (nombreUsuario !=true) {
 }
  */
 
+// LINE UP
+
+class artist {
+    constructor(name, day) {
+        this.name = name
+        this.day = day
+    }
+}
+
+//genero artistas
+const art1 = new artist("Richie Havens", "day1")
+const art2 = new artist("Swami Satchidananda", "day1")
+const art3 = new artist("Sweetwater", "day1")
+const art4 = new artist("Bert Sommer", "day1")
+const art5 = new artist("Tim Hardin", "day1")
+const art6 = new artist("Ravi Shankar", "day1")
+const art7 = new artist("Melanie Safka", "day1")
+const art8 = new artist("Arlo Guthrie", "day1")
+const art9 = new artist("Joan Baez", "day1")
+const art10 = new artist("Quill", "day2")
+const art11 = new artist("Country Joe McDonald", "day2")
+const art12 = new artist("John Sebastian", "day2")
+const art13 = new artist("Keef Hartley Band", "day2")
+const art14 = new artist("Santana", "day2")
+const art15 = new artist("Incredible String Band", "day2")
+const art16 = new artist("Canned Heat", "day2")
+const art17 = new artist("Mountain", "day2")
+const art18 = new artist("Grateful dead", "day2")
+const art19 = new artist("Creedence", "day2")
+const art20 = new artist("Janis Joplin", "day2")
+const art21 = new artist("Sly & the Family Stone", "day2")
+const art22 = new artist("The Who", "day2")
+const art23 = new artist("Jefferson airplane", "day2")
+const art24 = new artist("Joe Cocker", "day3")
+const art25 = new artist("Country Joe and the Fish", "day3")
+const art26 = new artist("Ten YEars After", "day3")
+const art27 = new artist("The band", "day3")
+const art28 = new artist("Johnny Winter", "day3")
+const art29 = new artist("Blood, sweat & tears", "day3")
+const art30 = new artist("Crosby, Stills, Nash & Young", "day3")
+const art31 = new artist("Paul Butterfield Blues Band", "day3")
+const art32 = new artist("Sha-Na-Na", "day3")
+const art33 = new artist("Jimi Hendrix", "day3")
+
+//array de artistas
+
+const arrayArtist = [art1, art2, art3, art4, art5, art6, art7, art8, art9, art10,
+    art11, art12, art13, art14, art15, art16, art17, art18, art19, art20,
+    art21, art22, art23, art24, art25, art26, art27, art28, art29, art30, art31, art32, art33]
+
+//generacion de cada artista
+
+const lineUpGrill = document.querySelector("#grill")
+
+arrayArtist.forEach((art) => {
+    const line = document.createElement("div")
+    line.className = "parrafoGrill"
+    line.innerHTML = `
+    <div class="grillList"> •${art.name}</div>
+    `
+    lineUpGrill.append(line)
+}
+)
+
+//BUSQUEDA POR ARTISTA
+const inputName = document.querySelector("#artistName")
+const mostrarValue = () => {
+    console.log(inputName.value)
+}
+const formulario = document.querySelector('#artistSearch')
+const mostrarSearch = (e) => {
+    e.preventDefault()
+    console.log(inputName.value)
+}
+formulario.addEventListener('submit', mostrarSearch)
+
+//IMPRIMIR BUSQUEDA
+
+// si mostrarSearch esta en arrayArtist
+
+const searchResult = arrayArtist.filter((search) => search.name.includes("Janis"))
+
+console.log(searchResult)
+
+document.getElementById("input").innerHTML = JSON.stringify(searchResult)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //TICKETS 
 
 //Class modelo de tickets
@@ -73,7 +179,7 @@ const day3 = new newTicket("Day 3", "DAY3.png", "Standard", 230)
 const days = [day1, day2, day3]
 
 //Array Carrito de compras
-const tickets = []
+let tickets = []
 
 //Referencia de tickets en el HTML
 const ticketsCard = document.querySelector("#ticketsCard")
@@ -88,7 +194,6 @@ days.forEach((cardTicket) => {
     <p class="cardDesc">${cardTicket.service} service</p>
     <span class="cardPrice">$ ${cardTicket.price}</span>
     `
-
     ticketsCard.append(card)
 })
 
@@ -146,6 +251,8 @@ const vaciarcarrito = () => {
 
 const vaciarcarritoBtn = document.querySelector("#vaciarCarrito")
 vaciarcarritoBtn.addEventListener("click", vaciarcarrito)
+
+
 
 
 
