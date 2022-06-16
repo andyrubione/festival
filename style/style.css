@@ -95,6 +95,7 @@ li a {
     letter-spacing: 2vw;
     margin-top: 25vh;
     margin-bottom: 6vh;
+    text-shadow: 5px 5px 5px rgba(101, 99, 0, 0.437);
 }
 
 .parrafoAbout {
@@ -123,6 +124,7 @@ li a {
     font-weight: 600;
     letter-spacing: 2vw;
     margin-bottom: 4rem;
+    text-shadow: 5px 5px 5px rgba(255, 251, 0, 0.437);
 }
 
 
@@ -166,6 +168,7 @@ li a {
     font-weight: 400;
     text-align: center;
     margin-bottom: 4rem;
+    box-shadow: 5px 5px 15px #7d0000;
 }
 
 #search {
@@ -182,19 +185,23 @@ li a {
 }
 
 #search:active {
-    color: #ffffff;
-    box-shadow: inset 4px 4px 12px #7b595959;
-    inset -4px -4px 12px #ffffff;
+    color: #6e7000;
+    box-shadow: inset 4px 4px 12px #ff000059;
 }
 
 #input{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     color: #7d0030;
-    font-family: Mustica;
-    font-size: 2rem;
+    font-size: 3rem;
+    font-family: 'TSBlock', sans-serif;
+    color: #7d0000;
     text-align: center;
     margin-bottom: 4rem;
+    background-color: #d8ca004c;
+    border-radius: 110px;
+    box-shadow: 5px 5px 20px black;
 }
 
 
@@ -216,6 +223,7 @@ li a {
     letter-spacing: 2vw;
     margin-left: 3vw;
     margin-top: 6vh;
+    text-shadow: 5px 5px 5px rgba(255, 251, 0, 0.437);
 }
 
 .ticketsCard {
@@ -228,10 +236,14 @@ li a {
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
 .cardImg {
     width: 80%;
+    border-style: solid;
+    border-color:  black;
+    box-shadow: 5px 5px 20px black;
 }
 
 .cardTitle {
@@ -279,6 +291,9 @@ li a {
 
 #ticketSection2 {
     grid-area: carrito;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .carritoSection {
@@ -304,8 +319,9 @@ li a {
     margin-top: 7vh;
     color: #7d0000;
     display: block;
-    font-size: 30px;
+    font-size: 3rem;
     text-align: center;
+    text-shadow: 5px 5px 5px rgba(255, 251, 0, 0.437);
 }
 
 .carritoImg {
@@ -321,6 +337,8 @@ li a {
     font-family: Mustica;
     color: #7d0000;
     text-align: center;
+    font-size: 1.5rem;
+    
 }
 
 .carritoDesc {
@@ -328,6 +346,7 @@ li a {
     font-family: Mustica;
     color: #7d0000;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .carritoPrice {
@@ -335,6 +354,7 @@ li a {
     font-family: Mustica;
     color: #7d0000;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 
@@ -353,6 +373,10 @@ button {
     padding: 0;
 }
 
+#empty{
+    display: flex;
+    justify-content: center;
+}
 button span {
     display: inline-block;
     padding: 15px 35px;
@@ -363,7 +387,7 @@ button span {
 }
 
 button span:hover {
-    transition: 2s ease-in-out;
+    transition: 0.7s ease-in-out;
     background: linear-gradient(32deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
     backdrop-filter: blur(0px);
     color: #ffffff;

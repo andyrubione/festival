@@ -61,39 +61,39 @@ class artist {
 }
 
 //genero artistas
-const art1 = new artist("Richie Havens", "day1")
-const art2 = new artist("Swami Satchidananda", "day1")
-const art3 = new artist("Sweetwater", "day1")
-const art4 = new artist("Bert Sommer", "day1")
-const art5 = new artist("Tim Hardin", "day1")
-const art6 = new artist("Ravi Shankar", "day1")
-const art7 = new artist("Melanie Safka", "day1")
-const art8 = new artist("Arlo Guthrie", "day1")
-const art9 = new artist("Joan Baez", "day1")
-const art10 = new artist("Quill", "day2")
-const art11 = new artist("Country Joe McDonald", "day2")
-const art12 = new artist("John Sebastian", "day2")
-const art13 = new artist("Keef Hartley Band", "day2")
-const art14 = new artist("Santana", "day2")
-const art15 = new artist("Incredible String Band", "day2")
-const art16 = new artist("Canned Heat", "day2")
-const art17 = new artist("Mountain", "day2")
-const art18 = new artist("Grateful dead", "day2")
-const art19 = new artist("Creedence", "day2")
-const art20 = new artist("Janis Joplin", "day2")
-const art21 = new artist("Sly & the Family Stone", "day2")
-const art22 = new artist("The Who", "day2")
-const art23 = new artist("Jefferson airplane", "day2")
-const art24 = new artist("Joe Cocker", "day3")
-const art25 = new artist("Country Joe and the Fish", "day3")
-const art26 = new artist("Ten YEars After", "day3")
-const art27 = new artist("The band", "day3")
-const art28 = new artist("Johnny Winter", "day3")
-const art29 = new artist("Blood, sweat & tears", "day3")
-const art30 = new artist("Crosby, Stills, Nash & Young", "day3")
-const art31 = new artist("Paul Butterfield Blues Band", "day3")
-const art32 = new artist("Sha-Na-Na", "day3")
-const art33 = new artist("Jimi Hendrix", "day3")
+const art1 = new artist("RICHIE HAVENS", "Day 1")
+const art2 = new artist("SWAMI SATCHIDANANDA", "Day 1")
+const art3 = new artist("SWEETWATER", "Day 1")
+const art4 = new artist("BERT SOMMER", "Day 1")
+const art5 = new artist("TIM HARDIN", "Day 1")
+const art6 = new artist("RAVI SHANKAR", "Day 1")
+const art7 = new artist("MELANIE SAFKA", "Day 1")
+const art8 = new artist("ARLO GUTHRIE", "Day 1")
+const art9 = new artist("JOAN BAEZ", "Day 1")
+const art10 = new artist("QUILL", "Day 2")
+const art11 = new artist("COUNTRY JOE MCDONALD", "Day 2")
+const art12 = new artist("JOHN SEBASTIAN", "Day 2")
+const art13 = new artist("KEEF HARTLEY BAND", "Day 2")
+const art14 = new artist("SANTANA", "Day 2")
+const art15 = new artist("INCREDIBLE STRING BAND", "Day 2")
+const art16 = new artist("CANNED HEAT", "Day 2")
+const art17 = new artist("MOUNTAIN", "Day 2")
+const art18 = new artist("GRATEFUL DEAD", "Day 2")
+const art19 = new artist("CREEDENCE", "Day 2")
+const art20 = new artist("JANIS JOPLIN", "Day 2")
+const art21 = new artist("SLY & THE FAMILY STONE", "Day 2")
+const art22 = new artist("THE WHO", "Day2")
+const art23 = new artist("JEFFERSON AIRPLANE", "Day 2")
+const art24 = new artist("JOE COCKER", "Day 3")
+const art25 = new artist("COUNTRY JOE AND THE FISH", "Day 3")
+const art26 = new artist("TEN YEARS AFTER", "Day 3")
+const art27 = new artist("THE BAND", "Day 3")
+const art28 = new artist("JOHNNY WINTER", "Day 3")
+const art29 = new artist("BLOOD, SWEAT & TEARS", "Day 3")
+const art30 = new artist("CROSBY, STILLS, NASH & YOUNG", "Day 3")
+const art31 = new artist("PAUL BUTTERFIELD BLUES BAND", "Day 3")
+const art32 = new artist("SHA-NA-NA", "Day 3")
+const art33 = new artist("JIMI HENDRIX", "Day 3")
 
 //array de artistas
 
@@ -116,46 +116,33 @@ arrayArtist.forEach((art) => {
 )
 
 //BUSQUEDA POR ARTISTA
-const inputName = document.querySelector("#artistName")
+let inputName = document.querySelector("#artistName")
 const mostrarValue = () => {
     console.log(inputName.value)
 }
+
 const formulario = document.querySelector('#artistSearch')
 const mostrarSearch = (e) => {
     e.preventDefault()
     console.log(inputName.value)
+
+let searchResult = arrayArtist.filter((search) => search.name.includes(inputName.value.toUpperCase()))
+
+
+const resultSearch = document.querySelector("#input")
+
+searchResult.forEach((artistFind) => {
+    const findArtist = document.createElement("div")
+    findArtist.className = "findArtist"
+    findArtist.innerHTML = `
+    <div>Artist: ${artistFind.name}</div>
+    <div>${artistFind.day}</div>
+    `
+    resultSearch.append(findArtist)
+})
+
 }
 formulario.addEventListener('submit', mostrarSearch)
-
-//IMPRIMIR BUSQUEDA
-
-// si mostrarSearch esta en arrayArtist
-
-const searchResult = arrayArtist.filter((search) => search.name.includes("Janis"))
-
-console.log(searchResult)
-
-document.getElementById("input").innerHTML = JSON.stringify(searchResult)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //TICKETS 
 
