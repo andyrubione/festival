@@ -126,22 +126,22 @@ const mostrarSearch = (e) => {
     e.preventDefault()
     console.log(inputName.value)
 
-let searchResult = arrayArtist.filter((search) => search.name.includes(inputName.value.toUpperCase()))
+    let searchResult = arrayArtist.filter((search) => search.name?.includes(inputName.value.toUpperCase()))
 
+    const resultSearch = document.querySelector("#input")
 
-const resultSearch = document.querySelector("#input")
-
-searchResult.forEach((artistFind) => {
-    const findArtist = document.createElement("div")
-    findArtist.className = "findArtist"
-    findArtist.innerHTML = `
+    searchResult.forEach((artistFind) => {
+        const findArtist = document.createElement("div")
+        findArtist.className = "findArtist"
+        findArtist.innerHTML = `
     <div>Artist: ${artistFind.name}</div>
     <div>${artistFind.day}</div>
     `
-    resultSearch.append(findArtist)
-})
+        resultSearch.append(findArtist)
+    })
 
 }
+
 formulario.addEventListener('submit', mostrarSearch)
 
 //TICKETS 
@@ -188,6 +188,12 @@ days.forEach((cardTicket) => {
 const carritoSection = document.querySelector("#carritoSection")
 
 const imprimirtickets = () => {
+    let cantidad = tickets.length
+    console.log(cantidad)
+
+    let suma = tickets.reduce((acumulador, totalSuma) => acumulador + totalSuma.price, 0)
+    console.log(suma)
+
     carritoSection.innerHTML = ``
     tickets.forEach((cardTicket) => {
         const Box = document.createElement("div")
@@ -200,9 +206,15 @@ const imprimirtickets = () => {
     <div class="carritoTitle">${cardTicket.day} </div>
     <div class="carritoDesc">${cardTicket.service} service</div>
     <div class="carritoPrice">$ ${cardTicket.price}</div>
+    <div class="carritocantidad">Tickets: </div>
     </div>
     `
         carritoSection.append(Box)
+
+        let totalDesc = cantidad >= 3 ? ((suma) * 75 / 100) : suma;
+        let total = document.getElementById("total")
+        total.innerText = totalDesc
+      
     })
 }
 
@@ -222,10 +234,8 @@ botonCompra.forEach((botonC) => {
 })
 
 //Verifiacion de carrito al recargar la pagina
-if (localStorage.getItem("tickets")) {
-    tickets = JSON.parse(localStorage.getItem('tickets'))
-    imprimirtickets()
-}
+tickets = JSON.parse(localStorage.getItem('tickets')) || []
+imprimirtickets()
 
 //Vaciar carrito
 const vaciarcarrito = () => {
@@ -240,32 +250,6 @@ const vaciarcarritoBtn = document.querySelector("#vaciarCarrito")
 vaciarcarritoBtn.addEventListener("click", vaciarcarrito)
 
 
+// primero contar cuantos tickets compro, sumar el precio de todos los productos y realizar la promocion segun corresponda
 
 
-
-/* 
-//COMBO TICKETS SELECTION (Esto se hara con selector y no con texto)
-
-dayNumberA = prompt("Elija: Day 1, Day 2 or Day 3:")
-const aTicketA = tickets.find(ticket => ticket.day === dayNumberA)
-console.log(aTicketA)
-
-dayNumberB = prompt("Elija: Day 1, Day 2 o Day 3:")
-const aTicketB = tickets.find(ticket => ticket.day === dayNumberB)
-console.log(aTicketB)
-
-const arrayTicketsCombo2day = []
-
-arrayTicketsCombo2day.push (aTicketA)
-arrayTicketsCombo2day.push (aTicketB)
-console.log(arrayTicketsCombo2day)
-
-//MONTO A ABONAR SEGUN LA ELECCION
-
-
-const totalTickets2 = arrayTicketsCombo2day.reduce((acumulador,twoDays) => acumulador + twoDays.price,0)
-console.log("Total a pagar por 2 entradas: " + (totalTickets2)*85/100)
-
-const totalTicket3day = tickets.reduce((acumulador, abono) => acumulador + abono.price, 0)
-console.log("Total a pagar por el abono completo: " +(totalTicket3day) * 75 / 100) 
- */

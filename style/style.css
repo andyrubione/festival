@@ -264,6 +264,15 @@ li a {
     margin-bottom: 10px;
 }
 
+.carritocantidad{
+    color: #7d0000;
+    font-family: Mustica;
+    display: block;
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
 .cardDesc {
     color: #7d0000;
     font-family: Mustica;
@@ -357,8 +366,32 @@ li a {
     font-size: 1.5rem;
 }
 
+.carritocantidad{
+    width: 25%;
+    font-family: Mustica;
+    color: #7d0000;
+    text-align: center;
+    font-size: 1.5rem;
+}
 
+.total{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 25%;
+    font-family: Mustica;
+    color: #7d0000;
+    text-align: center;
+    font-size: 1.5rem;
+}
 
+#total{    
+    width: 25%;
+    font-family: Mustica;
+    color: #7d0000;
+    text-align: center;
+    font-size: 1.5rem;
+}
 /* button */
 
 
