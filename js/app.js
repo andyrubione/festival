@@ -1,3 +1,6 @@
+
+
+
 /* 
 //REGISTRO
 
@@ -109,7 +112,7 @@ arrayArtist.forEach((art) => {
     const line = document.createElement("div")
     line.className = "parrafoGrill"
     line.innerHTML = `
-    <div class="grillList"> •${art.name}</div>
+    <div class="grillList" data-aos="zoom-in-up"> •${art.name}</div>
     `
     lineUpGrill.append(line)
 }
@@ -176,7 +179,7 @@ days.forEach((cardTicket) => {
     const card = document.createElement("div")
     card.className = "card"
     card.innerHTML = `
-    <input type="image" src="${cardTicket.imgSrc}" data-id="${cardTicket.day}" class="buttonCTA cardImg">
+    <input type="image" src="${cardTicket.imgSrc}" data-id="${cardTicket.day}" class="buttonCTA cardImg" data-aos="flip-left">
     <h3 class="cardTitle">${cardTicket.day} </h3>
     <p class="cardDesc">${cardTicket.service} service</p>
     <span class="cardPrice">$ ${cardTicket.price}</span>
@@ -189,10 +192,7 @@ const carritoSection = document.querySelector("#carritoSection")
 
 const imprimirtickets = () => {
     let cantidad = tickets.length
-    console.log(cantidad)
-
     let suma = tickets.reduce((acumulador, totalSuma) => acumulador + totalSuma.price, 0)
-    console.log(suma)
 
     carritoSection.innerHTML = ``
     tickets.forEach((cardTicket) => {
@@ -206,8 +206,6 @@ const imprimirtickets = () => {
     <div class="carritoTitle">${cardTicket.day} </div>
     <div class="carritoDesc">${cardTicket.service} service</div>
     <div class="carritoPrice">$ ${cardTicket.price}</div>
-    <div class="carritocantidad">Tickets: </div>
-    </div>
     `
         carritoSection.append(Box)
 
@@ -218,6 +216,7 @@ const imprimirtickets = () => {
     })
 }
 
+
 //Seleccion de tickets
 const agregarTicket = (e) => {
     const ticketElegido = e.target.getAttribute("data-id")
@@ -225,6 +224,15 @@ const agregarTicket = (e) => {
     tickets.push(cardTicket)
     imprimirtickets()
     localStorage.setItem("tickets", JSON.stringify(tickets))
+    Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your ticket has been added',
+        showConfirmButton: false,
+        timer: 2000,
+        position: "center",
+        timerProgressBar: true,
+      })
 }
 
 //Agregar evento 
@@ -244,12 +252,12 @@ const vaciarcarrito = () => {
     }
     tickets = []
     imprimirtickets()
+
+    let totalDesc = 0;
+    let total = document.getElementById("total")
+    total.innerText = totalDesc
 }
 
 const vaciarcarritoBtn = document.querySelector("#vaciarCarrito")
 vaciarcarritoBtn.addEventListener("click", vaciarcarrito)
-
-
-// primero contar cuantos tickets compro, sumar el precio de todos los productos y realizar la promocion segun corresponda
-
 
